@@ -65,7 +65,7 @@ const UpdatePromptSkeleton = () => {
 };
 
 export function UpdatePrompt() {
-  "use client" 
+  "use client"
   return (
     // You could have a loading skeleton as the `fallback` too
 
