@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from 'react' ;
 
 import Form from "@components/Form";
 
-const UpdatePrompt = () => {
+const UpdatePromptSkeleton = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
@@ -63,4 +64,11 @@ const UpdatePrompt = () => {
   );
 };
 
-export default UpdatePrompt;
+export function UpdatePrompt() {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense>
+      <UpdatePromptSkeleton />
+    </Suspense>
+  )
+}
