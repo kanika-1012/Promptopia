@@ -65,8 +65,10 @@ const UpdatePromptSkeleton = () => {
 };
 
 export function UpdatePrompt() {
+  "use client" 
   return (
     // You could have a loading skeleton as the `fallback` too
+
     <Suspense>
       <UpdatePromptSkeleton />
     </Suspense>
