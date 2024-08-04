@@ -8,7 +8,7 @@ const handler = NextAuth({
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
     callbacks: {
@@ -30,8 +30,8 @@ const handler = NextAuth({
                 if (!userExists) {
                     await User.create({
                         email: profile.email,
-                        username: profile.login,
-                        image: profile.picture,
+                        username: profile.name.replace(/\s/g, "").toLowerCase(),
+                        image: profile.picture
                     });
                 }
 
@@ -41,9 +41,7 @@ const handler = NextAuth({
                 return false
             }
         },
-        
     }
-    
 })
 
 export { handler as GET, handler as POST }
