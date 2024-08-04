@@ -3,6 +3,7 @@
 const { useRouter, useSearchParams } = require("next/navigation");
 const { useEffect, useState } = require("react");
 
+
 const UpdatePromptSkeleton = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -60,3 +61,4 @@ const UpdatePromptSkeleton = () => {
     />
   );
 };
+export default UpdatePromptSkeleton ;
